@@ -1,13 +1,18 @@
-# cvat_automatic_annotation
+# cvat_on_lima_vm
 
-Nuclio script to execute YOLOX on CVAT Automatic Annotation.
+Build a VM with lima and run CVAT and Automatic Annotation.
 
-## deploy
+## Initial Setup
 
 1. fix `metadata.annotations.spec` [yolox/function.yaml](yolox/function.yaml)
 1. Put the model in `yolox/best_ckpt.pth`.
-1. `./cvat/serverless/deploy_cpu.sh /YOU/PATH/cvat_automatic_annotation/yolox`
+1. `limactl start --name=cvat lima.yaml`
+1. Wait for lima VM to start.
+1. `limactl shell cvat`
+1. `sudo ./docker_run.sh` You must enter the cvat admin password at the end of the run.
 
 ## Reference
 
-[Semi\-automatic and Automatic Annotation \| CVAT](https://openvinotoolkit.github.io/cvat/docs/administration/advanced/installation_automatic_annotation/)
+- [lima/default\.yaml at master · lima\-vm/lima](https://github.com/lima-vm/lima/blob/master/examples/default.yaml)
+- [lima/docker\.yaml at master · lima\-vm/lima](https://github.com/lima-vm/lima/blob/master/examples/docker.yaml)
+- [Semi\-automatic and Automatic Annotation \| CVAT](https://openvinotoolkit.github.io/cvat/docs/administration/advanced/installation_automatic_annotation/)
