@@ -37,6 +37,7 @@ provision:
       command -v docker >/dev/null 2>&1 && exit 0
       export DEBIAN_FRONTEND=noninteractive
       curl -fsSL https://get.docker.com | sh
+      apt install -y python3-pip
       # NOTE: you may remove the lines below, if you prefer to use rootful docker, not rootless
       # systemctl disable --now docker # If you do this, the docker0 interface will disappear.
       # apt-get install -y uidmap dbus-user-session

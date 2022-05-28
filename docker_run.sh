@@ -19,10 +19,13 @@ cd ~
 
 CVAT_TAG=2.1.0
 wget --no-clobber https://github.com/openvinotoolkit/cvat/archive/refs/tags/v$CVAT_TAG.tar.gz
-rm -rf cvat-$CVAT_TAG
-tar zxvf v$CVAT_TAG.tar.gz cvat-$CVAT_TAG/cvat/apps/iam/rules
-rm -rf cvat
-mv cvat-$CVAT_TAG/cvat cvat
+rm -rf cvat utils
+tar -zxvf v$CVAT_TAG.tar.gz \
+    --strip-components=1 \
+    cvat-$CVAT_TAG/cvat/apps/iam/rules \
+    cvat-$CVAT_TAG/utils/cli
+
+pip install -r utils/cli/requirements.txt
 
 docker compose up --build --detach
 

@@ -11,8 +11,20 @@ Build a VM with lima and run CVAT and Automatic Annotation.
 1. `limactl shell cvat`
 1. `sudo ./docker_run.sh` You must enter the cvat admin password at the end of the run.
 
+## Upload datasets to CVAT
+
+```sh
+limactl shell cvat \
+    sudo python3 /root/utils/cli/cli.py \
+    --auth admin:admin \
+    create "task 1" \
+    --project_id 1 \
+    local /YOUR/PATH/DATA.zip
+```
+
 ## Reference
 
 - [lima/default\.yaml at master · lima\-vm/lima](https://github.com/lima-vm/lima/blob/master/examples/default.yaml)
 - [lima/docker\.yaml at master · lima\-vm/lima](https://github.com/lima-vm/lima/blob/master/examples/docker.yaml)
 - [Semi\-automatic and Automatic Annotation \| CVAT](https://openvinotoolkit.github.io/cvat/docs/administration/advanced/installation_automatic_annotation/)
+- [Command line interface \(CLI\) \| CVAT](https://openvinotoolkit.github.io/cvat/docs/manual/advanced/cli/)
