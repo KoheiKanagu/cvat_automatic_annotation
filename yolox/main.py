@@ -41,7 +41,7 @@ def handler(context, event):
     model = context.user_data.model
     exp = context.user_data.exp
     labels = context.user_data.labels
-    test_size = exp.input_scale
+    test_size = exp.input_size
     num_classes = exp.num_classes
     confthre = exp.test_conf
     nmsthre = exp.nmsthre
